@@ -22,6 +22,4 @@ phases:
       - echo "build completed on `date`"
 artifacts:
   files:
-    - ami_builder_event.json
-    - build.log
-  discard-paths: yes
+    - '**/*'
