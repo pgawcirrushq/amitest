@@ -34,7 +34,7 @@
       "Name": "{{user `ami_name`}}"
     },
     "ami_description": "Amazon Linux 2 AMI build from the AMI pipeline for use within the Infrastructure CodePipeline",
-    "associate_public_ip_address": "true",
+    "associate_public_ip_address": "false",
     "vpc_id": "{{user `vpc`}}",
     "subnet_id": "{{user `subnet`}}"
   }],
