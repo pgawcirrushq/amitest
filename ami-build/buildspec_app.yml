@@ -18,7 +18,7 @@ phases:
       - egrep "${AWS_REGION}\:\sami\-" build.log | cut -d' ' -f2 > ami_id.txt
       # Packer doesn't return non-zero status; we must do that if Packer build failed
       - test -s ami_id.txt || exit 1
-      - aws ssm put-parameter --type 'String' --name "/CodeBuild/AMI-DEV-$BUILD_APP_NAME" --value $(head -n 1 ami_id.txt) --overwrite
+      - aws ssm put-parameter --type 'String' --name "/CodeBuild/AppAMI-Dev-$BUILD_APP_NAME" --value $(head -n 1 ami_id.txt) --overwrite
       - sed -i.bak "s/<<AMI-ID>>/$(cat ami_id.txt)/g" ami_builder_event.json
       - aws events put-events --entries file://ami_builder_event.json
       - echo "build completed on `date`"
