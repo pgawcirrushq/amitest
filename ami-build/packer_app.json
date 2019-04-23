@@ -29,19 +29,14 @@
   ],
   "provisioners": [
     {
-      "inline": [
-        "sudo yum update -y"
-      ],
-      "type": "shell"
-    },
-    {
       "cookbook_paths": [
         "cookbooks"
       ],
       "run_list": [
         "{{user `app_roles`}}"
       ],
-      "type": "chef-solo"
+      "type": "chef-solo",
+      "skip_install": true
     },
     {
       "inline": [
